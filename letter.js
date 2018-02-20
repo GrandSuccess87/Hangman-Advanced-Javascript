@@ -2,6 +2,7 @@
 
 var Letter = function (char) {
     this.letter = char;
+    // var lC = char.toLowerCase();
     this.guessedLetter = false;
     this.toString = function () {
         if(this.guessedLetter) {
@@ -17,6 +18,7 @@ var Letter = function (char) {
         }
     } 
             this.guessedLetter = false;
+
             }
 
 var A = new Letter(A);

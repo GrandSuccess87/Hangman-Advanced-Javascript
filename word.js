@@ -1,42 +1,46 @@
 var Letter = require('./letter.js');
-// console.log(Letter);
-
-var letterArray = [];
-
-input = "tessa";
+console.log(Letter);
 
 
-
+input = "belize";
 
 var wordReady = function (input) {
-    this.letter = letterArray;
-    this.numCorrect;
+    var letterArray = [];
 
     for (var i = 0; i < input.length; i++) {
         letterArray.push(new Letter(input[i]));
         
 
     } console.log(letterArray);
+    this.letterArray = letterArray;
+    this.numCorrect;
+
+    console.log(this.letterArray);
     
   
 this.showLetters = function() { 
     var wordString = " "; 
-    for(var i = 0; i < letterArray.length; i++ ) {
+    for(var i = 0; i < this.letterArray.length; i++ ) {
        wordString += this.letterArray[i] + " "; 
          console.log(wordString);
          return wordString;
 
     }
 
-this.guessFunction = function() {
-    this.correct = 0;
-    this.numGuesses = 0;
+this.guessed = function(char) {
+    correct = false;
+    // this.numGuesses = 0;
+
     for (var i = 0; i < letterArray.length; i++) {
-        if(letter[i] === this.isMatch(char)) {
+        if(letterArray[i] === this.isMatch(char)) {
             correct ++;
+            this.numCorrect ++;
+            console.log(this.numCorrect);
 
         } 
-         correct --; 
+            this.numCorrect --;
+            console.log(this.numCorrect);
+            correct --; 
         
     }
 }
@@ -45,6 +49,9 @@ this.guessFunction = function() {
 }
 
 var word = new wordReady(input);
+word.showLetters();
+word.guessed();
+word.guessed("b");
 
 
 }
