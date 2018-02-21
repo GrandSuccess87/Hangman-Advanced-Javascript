@@ -62,13 +62,13 @@ var wordReady = function (input) {
 }
 
 
-input = "belize";
+// input = "belize";
 
-var word = new wordReady(input);
+// var word = new wordReady(input);
 // word.showLetters(input);
 // word.guessed();
 // word.guessed("bab");
-console.log(word.getFilled());
+// console.log(word.getFilled());
 
 
 

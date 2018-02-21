@@ -23,7 +23,7 @@ Letter.prototype.toString = function (char) {
     }
 
 var A = new Letter(A);
-console.log(A+" ");
+// console.log(A+" ");
 
 module.exports = Letter;
 

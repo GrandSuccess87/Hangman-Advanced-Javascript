@@ -1,0 +1,32 @@
+{
+  "name": "hangman-advanced-javascript",
+  "version": "1.0.0",
+  "description": "Interactive Hangman Game ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrandSuccess87/Hangman-Advanced-Javascript.git"
+  },
+  "keywords": [
+    "Hangman",
+    "Javascript",
+    "Game",
+    "Git",
+    "Javascript",
+    "-",
+    "Constructors"
+  ],
+  "author": "Quintessa Anderson <anderson.quintessa@gmail.com> (http://quintessacanderson.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrandSuccess87/Hangman-Advanced-Javascript/issues"
+  },
+  "homepage": "https://github.com/GrandSuccess87/Hangman-Advanced-Javascript#readme",
+  "dependencies": {
+    "prompt": "^1.0.0",
+    "require": "^2.4.20"
+  }
+}
