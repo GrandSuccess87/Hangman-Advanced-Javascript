@@ -2,15 +2,8 @@
 
 var Letter = function (char) {
     this.letter = char;
-    // var lC = char.toLowerCase();
+    this.appear = false;
     this.guessedLetter = false;
-    this.toString = function () {
-        if(this.guessedLetter) {
-            return char;
-            
-        } 
-            return "_";
-    }
 
     this.isMatch = function (char) {
         if (char === this.guessedLetter) {
@@ -20,6 +13,14 @@ var Letter = function (char) {
             this.guessedLetter = false;
 
             }
+
+Letter.prototype.toString = function (char) {
+    if(this.guessedLetter) {
+        return char;
+                    
+    } 
+        return "_";
+    }
 
 var A = new Letter(A);
 console.log(A+" ");

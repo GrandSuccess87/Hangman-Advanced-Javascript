@@ -1,60 +1,81 @@
 var Letter = require('./letter.js');
-console.log(Letter);
+// console.log(Letter);
+
+var wordReady = function (input) {
+    this.input = input;
+    this.filled = [];
+    this.found = false;
+
+    this.getFilled = function () {
+        for (var i = 0; i < this.input.length; i++) {
+            this.filled.push(new Letter(this.input[i].toLowerCase()));
+
+        }
+        console.log(this.filled);
+        this.numCorrect;
+
+    };
+
+    this.showLetters = function () {
+        var wordString = " ";
+        for (var i = 0; i < this.filled.length; i++) {
+            wordString += this.filled[i] + " ";
+            console.log(wordString);
+            return wordString;
+        }
+        //  return this.found;
+    };
+
+    this.checkLetter = function (char) {
+        var toReturn = 0;
+        this.numCorrect;
+        // this.numGuesses = 0;
+
+        for (var i = 0; i < this.filled.length; i++) {
+            if (this.filled[i].char == char) {
+                // is .char needed after this.filled[i]?
+                this.filled[i].appear = true;
+
+                toReturn++;
+                console.log(toReturn);
+
+                this.numCorrect++;
+                console.log(this.numCorrect);
+
+            }
+            this.numCorrect--;
+            console.log(this.numCorrect);
+            toReturn--;
+            console.log(toReturn);
+
+        }
+        return toReturn;
+    };
+
+    this.findWord = function () {
+        this.found = this.filled.every(function (currLett) {
+            return currLett.appear;
+        });
+        return this.found;
+    }
+
+}
 
 
 input = "belize";
 
-var wordReady = function (input) {
-    var letterArray = [];
-
-    for (var i = 0; i < input.length; i++) {
-        letterArray.push(new Letter(input[i]));
-        
-
-    } console.log(letterArray);
-    this.letterArray = letterArray;
-    this.numCorrect;
-
-    console.log(this.letterArray);
-    
-  
-this.showLetters = function() { 
-    var wordString = " "; 
-    for(var i = 0; i < this.letterArray.length; i++ ) {
-       wordString += this.letterArray[i] + " "; 
-         console.log(wordString);
-         return wordString;
-
-    }
-
-this.guessed = function(char) {
-    correct = false;
-    // this.numGuesses = 0;
-
-    for (var i = 0; i < letterArray.length; i++) {
-        if(letterArray[i] === this.isMatch(char)) {
-            correct ++;
-            this.numCorrect ++;
-            console.log(this.numCorrect);
-
-        } 
-            this.numCorrect --;
-            console.log(this.numCorrect);
-            correct --; 
-        
-    }
-}
-
-    
-}
-
 var word = new wordReady(input);
-word.showLetters();
-word.guessed();
-word.guessed("b");
+// word.showLetters(input);
+// word.guessed();
+// word.guessed("bab");
+console.log(word.getFilled());
 
 
-}
+
+
+
+
+
 
 // Word.js: Contains a constructor, Word that depends on the Letter constructor. This is used to create an object representing the current word the user is attempting to guess. That means the constructor should define:
 
@@ -67,7 +88,7 @@ word.guessed("b");
 // var word3 = "austin";
 
 
- // var tessa = new Letter (char);
+// var tessa = new Letter (char);
 // char = ["t", "e", "s", "s", "a"];
 
 // var t = new Letter ("t", "e");
@@ -78,9 +99,9 @@ word.guessed("b");
 
 //  // create a for loop that will concantenate the underscores
 //  console.log("\n");
-            
+
 // var underScore = "_";
 
 //             for (var i = 0; i < char.length; i++) {
 //             this.guessedLetter += " ";  console.log(underScore);
-// 
+//
