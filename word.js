@@ -1,14 +1,14 @@
 var Letter = require('./letter.js');
 // console.log(Letter);
 
-var wordReady = function (input) {
-    this.input = input;
+var wordReady = function (target) {
+    this.target = target;
     this.filled = [];
     this.found = false;
 
     this.getFilled = function () {
-        for (var i = 0; i < this.input.length; i++) {
-            this.filled.push(new Letter(this.input[i].toLowerCase()));
+        for (var i = 0; i < this.target.length; i++) {
+            this.filled.push(new Letter(this.target[i].toLowerCase()));
 
         }
         console.log(this.filled);
@@ -61,11 +61,17 @@ var wordReady = function (input) {
 
 }
 
+module.exports = wordReady;
 
-// input = "belize";
+// target = "belize";
 
-// var word = new wordReady(input);
-// word.showLetters(input);
+
+
+// var word = new wordReady("belize");
+// console.log(word);
+// console.log(word.showLetters());
+
+// word.showLetters(target);
 // word.guessed();
 // word.guessed("bab");
 // console.log(word.getFilled());

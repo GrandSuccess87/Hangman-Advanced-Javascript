@@ -17,7 +17,9 @@
     "Git",
     "Javascript",
     "-",
-    "Constructors"
+    "Constructors",
+    "node",
+    "nodejs"
   ],
   "author": "Quintessa Anderson <anderson.quintessa@gmail.com> (http://quintessacanderson.com)",
   "license": "ISC",
