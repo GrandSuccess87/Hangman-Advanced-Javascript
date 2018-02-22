@@ -14,7 +14,7 @@ game = {
     wordBank: ['javascript', 'nodejs', 'jquery', 'mysql', 'git', 'html', 'css', 'npm', 'json'],
     wordsWon: 0,
     guessesRemaining: 10,
-    currentWord: null,
+    // currentWord: null,
 
     startGame: function(word) {
         this.resetGuesses();
@@ -31,15 +31,17 @@ game = {
     promptUser: function () {
         var index = this;
         prompt.get(['char'], function(err, result){
-            console.log(result);
+            // console.log(result);
             console.log("You Guessed: " + result.char);
-
-            var guessed = index.currentWord.checkLetter(result.char);
+            var newWord = new Word(result);
+            var guessed = newWord.checkLetter(result.char);
+            console.log(guessed);
 
             if(guessed == 0 ) {
+                
                 console.log("WRONG!");
                 index.guessesRemaining--;
-            } 
+            } else {
                 console.log("CORRECT");
                 //?? find word function not working ?? //
                     if(index.currentWord.findWord()) {
@@ -49,7 +51,7 @@ game = {
                         return;
 
                     }
-
+                }
                 console.log("Guesses remaining: " + index.guessesRemaining);
                 console.log("--------------------------------");
                 if((index.guessesRemaining > 0) && (index.currentWord.found == false)) {

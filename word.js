@@ -1,7 +1,7 @@
 var Letter = require('./letter.js');
 // console.log(Letter);
 
-var wordReady = function (target) {
+var WordReady = function (target) {
     this.target = target;
     this.filled = [];
     this.found = false;
@@ -61,7 +61,7 @@ var wordReady = function (target) {
 
 }
 
-module.exports = wordReady;
+module.exports = WordReady;
 
 // target = "belize";
 
