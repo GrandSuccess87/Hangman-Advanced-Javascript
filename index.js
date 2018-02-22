@@ -38,13 +38,13 @@ game = {
             // var guessed = newWord.checkLetter(result.char);
             // console.log(guessed);
             if(index.guessesRemaining === 0) {
-                console.log("out of guesses");
+                console.log("Out of Guesses");
             }  else if(index.currentWord.checkLetter(result.char)) {
                 //loop through currentWord.filled[i].isMatch(char) similar to showLetters function in word.js
                 // for (var i = 0; i < this.filled.length; i++) {
-                //     this.filledd[i].isMatch(char)
+                    // if(this.filledd[i].isMatch(char)) {
 
-                index.guessesRemaining--;
+                // index.guessesRemaining--;
                 console.log(index.currentWord.showLetters());
 
                 console.log("CORRECT");
@@ -57,7 +57,11 @@ game = {
 
                     // }
                 
-            } else {
+            } 
+                // } 
+            // }
+                else {
+
                 console.log(index.currentWord.showLetters());
                 console.log("WRONG!");
                 index.guessesRemaining--;
@@ -76,10 +80,11 @@ game = {
                 //     console.log(index.currentWord.showLetter());
                 // }      
         
-            });
+        });
     
         }
 };
 
 game.startGame();
+// game.promptUser();
 // game.promptUser();

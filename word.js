@@ -19,7 +19,7 @@ var WordReady = function (target) {
     this.showLetters = function () {
         var wordString = " ";
         for (var i = 0; i < this.filled.length; i++) {
-            wordString += this.filled[i].toString() + " ";
+            wordString += this.filled[i] + " ";
             // console.log(wordString);
             return wordString;
         }
@@ -55,6 +55,7 @@ var WordReady = function (target) {
 
     this.findWord = function () {
         this.found = this.filled.every(function (currLett) {
+            console.log(currLett);
             return currLett.appear;
         });
         return this.found;
