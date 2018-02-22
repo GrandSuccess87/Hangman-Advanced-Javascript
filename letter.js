@@ -2,27 +2,30 @@
 
 var Letter = function (char) {
     this.letter = char;
-    this.appear = false;
+    // this.appear = false;
     this.guessedLetter = false;
 
     this.isMatch = function (char) {
         if (char === this.guessedLetter) {
             this.guessedLetter = true;
-        }
-    } 
+        } else { 
             this.guessedLetter = false;
+            
+        }
+    }
 
             }
 
-Letter.prototype.toString = function (char) {
+Letter.prototype.toString = function () {
+    console.log(this.guessedLetter);
     if(this.guessedLetter) {
-        return char;
+        return this.letter;
                     
     } 
         return "_";
     }
 
-var A = new Letter(A);
+// var A = new Letter(A);
 // console.log(A+" ");
 
 module.exports = Letter;

@@ -31,38 +31,50 @@ game = {
     promptUser: function () {
         var index = this;
         prompt.get(['char'], function(err, result){
+            // index.currentWord.isMatch(result.char);
             // console.log(result);
             console.log("You Guessed: " + result.char);
-            var newWord = new Word(result);
-            var guessed = newWord.checkLetter(result.char);
-            console.log(guessed);
+            // var newWord = new Word(result);
+            // var guessed = newWord.checkLetter(result.char);
+            // console.log(guessed);
+            if(index.guessesRemaining === 0) {
+                console.log("out of guesses");
+            }  else if(index.currentWord.checkLetter(result.char)) {
+                //loop through currentWord.filled[i].isMatch(char) similar to showLetters function in word.js
+                // for (var i = 0; i < this.filled.length; i++) {
+                //     this.filledd[i].isMatch(char)
 
-            if(guessed == 0 ) {
-                
-                console.log("WRONG!");
                 index.guessesRemaining--;
-            } else {
+                console.log(index.currentWord.showLetters());
+
                 console.log("CORRECT");
                 //?? find word function not working ?? //
-                    if(index.currentWord.findWord()) {
-                        console.log("You Won!");
-                        // console.log("Words Won: " + index.wordsWon++;);
-                        console.log("--------------------------------");
-                        return;
+                    // if(index.currentWord.findWord()) {
+                    //     console.log("You Won!");
+                    //     // console.log("Words Won: " + index.wordsWon++;);
+                    //     console.log("--------------------------------");
+                    //     return;
 
-                    }
+                    // }
+                
+            } else {
+                console.log(index.currentWord.showLetters());
+                console.log("WRONG!");
+                index.guessesRemaining--;
+
+               
                 }
-                console.log("Guesses remaining: " + index.guessesRemaining);
-                console.log("--------------------------------");
-                if((index.guessesRemaining > 0) && (index.currentWord.found == false)) {
-                    index.promptUser();
+                // console.log("Guesses remaining: " + index.guessesRemaining);
+                // console.log("--------------------------------");
+                // if((index.guessesRemaining > 0) && (index.currentWord.found == false)) {
+                //     index.promptUser();
 
-                } else if(index.guessesRemaining === 0) {
-                    console.log("Game Over! Correct Word Is: " + index.currentWord.target);
+                // } else if(index.guessesRemaining === 0) {
+                //     console.log("Game Over! Correct Word Is: " + index.currentWord.target);
 
-                } else {
-                    console.log(index.currentWord.showLetter());
-                }      
+                // } else {
+                //     console.log(index.currentWord.showLetter());
+                // }      
         
             });
     

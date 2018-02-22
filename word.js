@@ -12,44 +12,45 @@ var WordReady = function (target) {
 
         }
         console.log(this.filled);
-        this.numCorrect;
+        // this.numCorrect;
 
     };
 
     this.showLetters = function () {
         var wordString = " ";
         for (var i = 0; i < this.filled.length; i++) {
-            wordString += this.filled[i] + " ";
-            console.log(wordString);
+            wordString += this.filled[i].toString() + " ";
+            // console.log(wordString);
             return wordString;
         }
         //  return this.found;
     };
 
     this.checkLetter = function (char) {
+        console.log(char + "!!!!!");
         var toReturn = 0;
         this.numCorrect;
         // this.numGuesses = 0;
 
         for (var i = 0; i < this.filled.length; i++) {
-            if (this.filled[i].char == char) {
+            if (this.filled[i].letter == char) {
                 // is .char needed after this.filled[i]?
-                this.filled[i].appear = true;
+                // this.filled[i].appear = true;
+                return true;
+                // toReturn++;
+                // console.log(toReturn);
 
-                toReturn++;
-                console.log(toReturn);
-
-                this.numCorrect++;
-                console.log(this.numCorrect);
+                // this.numCorrect++;
+                // console.log(this.numCorrect);
 
             }
-            this.numCorrect--;
-            console.log(this.numCorrect);
-            toReturn--;
-            console.log(toReturn);
+            // this.numCorrect--;
+            // console.log(this.numCorrect);
+            // toReturn--;
+            // console.log(toReturn);
 
         }
-        return toReturn;
+        return false;
     };
 
     this.findWord = function () {
