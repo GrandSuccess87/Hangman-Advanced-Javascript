@@ -11,17 +11,19 @@ var inquirer = require('inquirer');
 
 var guessesRemaining = 10;
 var wordsWon;
+var wordBank = ['javascript', 'nodejs', 'jquery', 'mysql', 'git', 'html', 'css', 'npm', 'json']
+var currentWord = new Word(wordBank[Math.floor(Math.random() * wordBank.length)]);
+
 
 prompt.start();
 
 
 game = {
 
-    wordBank: ['javascript', 'nodejs', 'jquery', 'mysql', 'git', 'html', 'css', 'npm', 'json'],
-
+    
     startGame: function (word) {
         this.resetGuesses();
-        this.currentWord = new Word(this.wordBank[Math.floor(Math.random() * this.wordBank.length)]);
+        // this.currentWord = new Word(this.wordBank[Math.floor(Math.random() * this.wordBank.length)]);
         // this.currentWord.getFilled();
         this.promptUser();
 
@@ -39,7 +41,7 @@ game = {
             }])
             .then(function (inquirerResponse) {
                     guessesRemaining--;
-                    console.log(this.currentWord.checkLetter(inquirerResponse.guessedLetter));
+                    console.log(currentWord.checkLetter(inquirerResponse.guessedLetter));
 
                     if (guessesRemaining === 0) {
                         console.log("You Are Out of Guesses!");
@@ -60,7 +62,7 @@ game = {
 
                         // if user choses no, run else if satement to stop game
 
-                    } else if (!this.currentWord.notFinished()) {
+                    } else if (!currentWord.notFinished()) {
                         console.log("You Won!!");
                         wordsWon++;
                     } else {
@@ -77,3 +79,7 @@ game = {
     }
 }
 game.startGame();
+
+// things to fix:
+//save guessed letter. 
+//decrement guesses remaining when wrong letter is guessed

@@ -4,14 +4,14 @@ var Letter = require('./letter.js');
 var WordReady = function (input) {
     this.input = input;
     var lettArr = [];
-    this.found = false;
+    // this.found = false;
 
     // this.getFilled = function () {
     for (var letter in input) {
         lettArr.push(new Letter(input[letter].toLowerCase()));
 
     };
-    // console.log(lettArr);
+    console.log(lettArr);
     // };
     this.word = lettArr;
     this.showLetters = function () {
@@ -24,7 +24,7 @@ var WordReady = function (input) {
     };
 
     this.checkLetter = function (char) {
-        console.log(char + "!!!!!");
+        // console.log(char + "!!!!!");
         
 
         for (var i = 0; i < this.word.length; i++) {
@@ -39,13 +39,13 @@ var WordReady = function (input) {
     }
 
 
-    this.findWord = function () {
-        this.found = this.word.every(function (currLett) {
-            console.log(currLett);
-            return currLett.appear;
-        });
-        return this.found;
-    }
+    // this.findWord = function () {
+    //     this.found = this.word.every(function (currLett) {
+    //         console.log(currLett);
+    //         return currLett.appear;
+    //     });
+    //     return this.found;
+    // }
 
 
     this.notFinished = function () {

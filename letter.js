@@ -14,7 +14,7 @@ var Letter = function (char) {
 }
 
 Letter.prototype.toString = function () {
-    console.log(this.guessedLetter);
+    // console.log(this.guessedLetter);
     if (this.guessedLetter === true) {
         return this.char;
 
