@@ -1,34 +1,55 @@
-
+// function Letter(char) {
+//     this.char = char;
+//     this.guessed = false;
+//     this.toString = function() {
+//         if (this.guessed)
+//         {
+//             return this.char;
+//         }
+//         return "_"; 
+//     }
+//     this.isMatch = function(letter) {
+//         if (letter === this.char) {
+//             this.guessed = true;
+//         }
+//     }
+// };
 
 var Letter = function (char) {
-    this.letter = char;
-    // this.appear = false;
+    this.char = char;
     this.guessedLetter = false;
 
-    this.isMatch = function (char) {
-        if (char === this.guessedLetter) {
+    this.isMatch = function (letter) {
+        if (letter === this.char) {
             this.guessedLetter = true;
-        } else { 
+        } else {
             this.guessedLetter = false;
-            
+
         }
     }
 
-            }
+}
 
 Letter.prototype.toString = function () {
     console.log(this.guessedLetter);
-    if(this.guessedLetter) {
-        return this.letter;
-                    
-    } 
+    if (this.guessedLetter === true) {
+        return this.char;
+
+    } else {
         return "_";
     }
+}
+
+
+
+module.exports = Letter;
+
+
+
+
 
 // var A = new Letter(A);
 // console.log(A+" ");
-
-module.exports = Letter;
 
 // create this.isMatch function that check this.char to char 
 

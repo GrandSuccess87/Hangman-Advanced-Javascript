@@ -1,71 +1,90 @@
 var Letter = require('./letter.js');
 // console.log(Letter);
 
-var WordReady = function (target) {
-    this.target = target;
-    this.filled = [];
+var WordReady = function (input) {
+    this.input = input;
+    var lettArr = [];
     this.found = false;
 
-    this.getFilled = function () {
-        for (var i = 0; i < this.target.length; i++) {
-            this.filled.push(new Letter(this.target[i].toLowerCase()));
+    // this.getFilled = function () {
+        for (var letter in input) {
+            lettArr.push(new Letter(input[letter].toLowerCase()));
 
-        }
-        console.log(this.filled);
-        // this.numCorrect;
-
-    };
-
+        };
+        console.log(lettArr);
+    // };
+    this.word = lettArr;
     this.showLetters = function () {
-        var wordString = " ";
-        for (var i = 0; i < this.filled.length; i++) {
-            wordString += this.filled[i] + " ";
-            // console.log(wordString);
+        var wordString = "";
+        for (var i = 0; i < this.word.length; i++) {
+            wordString += this.word[i].toString() + " ";
+        };
             return wordString;
-        }
+            // console.log(wordString);
         //  return this.found;
     };
 
     this.checkLetter = function (char) {
         console.log(char + "!!!!!");
-        var toReturn = 0;
-        this.numCorrect;
+        // var toReturn = 0;
+        // this.numCorrect;
+
         // this.numGuesses = 0;
 
-        for (var i = 0; i < this.filled.length; i++) {
-            if (this.filled[i].letter == char) {
-                // is .char needed after this.filled[i]?
-                // this.filled[i].appear = true;
-                return true;
+        for (var i = 0; i < this.word.length; i++) {
+            // if (lettArr[i].letter == char) {
+                // is .char needed after lettArr[i]?
+                // lettArr[i].appear = true;
+
+                this.word[i].isMatch(char);
+        }
+                return this.showLetters();
+    }
                 // toReturn++;
                 // console.log(toReturn);
 
                 // this.numCorrect++;
                 // console.log(this.numCorrect);
 
-            }
+            
             // this.numCorrect--;
             // console.log(this.numCorrect);
             // toReturn--;
             // console.log(toReturn);
 
-        }
-        return false;
-    };
+        // }
+        // return false;
+    // };
+
+    this.getAnswer = function () {
+        console.log(this.word);
+    }
+
 
     this.findWord = function () {
-        this.found = this.filled.every(function (currLett) {
+        this.found = this.word.every(function (currLett) {
             console.log(currLett);
             return currLett.appear;
         });
         return this.found;
     }
 
+
+    this.notFinished = function() {
+        var guessMore = false;
+        for(var i = 0; i < this.word.length; i++) {
+            if(this.word[i].toString() == "_") {
+            guessMore = true;
+            break;
+        }
+    }
+    return guessMore;
+
 }
 
 module.exports = WordReady;
 
-// target = "belize";
+// input = "belize";
 
 
 
@@ -73,7 +92,7 @@ module.exports = WordReady;
 // console.log(word);
 // console.log(word.showLetters());
 
-// word.showLetters(target);
+// word.showLetters(input);
 // word.guessed();
 // word.guessed("bab");
 // console.log(word.getFilled());
@@ -109,7 +128,3 @@ module.exports = WordReady;
 //  console.log("\n");
 
 // var underScore = "_";
-
-//             for (var i = 0; i < char.length; i++) {
-//             this.guessedLetter += " ";  console.log(underScore);
-//
