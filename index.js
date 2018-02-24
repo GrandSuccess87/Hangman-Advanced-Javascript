@@ -10,7 +10,7 @@ var prompt = require('prompt');
 var inquirer = require('inquirer');
 
 var guessesRemaining = 10;
-var wordsWon;
+var wordsWon = 0;
 var wordBank = ['javascript', 'nodejs', 'jquery', 'mysql', 'git', 'html', 'css', 'npm', 'json']
 var currentWord = new Word(wordBank[Math.floor(Math.random() * wordBank.length)]);
 
@@ -46,6 +46,7 @@ game = {
                     if (guessesRemaining === 0) {
                         console.log("You Are Out of Guesses!");
                         wordsWon--;
+                        console.log("Words Won: " + wordsWon);
 
 
                         inquirer.prompt([{
@@ -63,8 +64,9 @@ game = {
                         // if user choses no, run else if satement to stop game
 
                     } else if (!currentWord.notFinished()) {
-                        console.log("You Won!!");
+                        console.log("You Won!! Congratulations, You Rock!!");
                         wordsWon++;
+                        console.log("Words Won: " + wordsWon);
                     } else {
                         //user has to continue guessing until they either win or reach 0.
                         console.log("Guesses Remaining: " + guessesRemaining);

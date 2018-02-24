@@ -5,10 +5,11 @@ var Letter = function (char) {
     this.isMatch = function (letter) {
         if (letter === this.char) {
             this.guessedLetter = true;
-        } else {
-            this.guessedLetter = false;
+        } 
+        // else {
+        //     this.guessedLetter = false;
 
-        }
+        // }
     } 
         return;
 }
@@ -18,7 +19,8 @@ Letter.prototype.toString = function () {
     if (this.guessedLetter === true) {
         return this.char;
 
-    } else {
+    } 
+    else {
         return "_";
     }
 }
