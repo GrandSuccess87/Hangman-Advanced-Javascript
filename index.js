@@ -22,16 +22,16 @@ game = {
 
     
     startGame: function (word) {
-        this.resetGuesses();
+        // this.resetGuesses();
         // this.currentWord = new Word(this.wordBank[Math.floor(Math.random() * this.wordBank.length)]);
         // this.currentWord.getFilled();
         this.promptUser();
 
     },
 
-    resetGuesses: function () {
-        guessesRemaining = 10;
-    },
+    // resetGuesses: function () {
+    //     guessesRemaining = 10;
+    // },
 
     promptUser: function () {
         inquirer.prompt([{
@@ -42,7 +42,9 @@ game = {
             .then(function (inquirerResponse) {
                     guessesRemaining--;
                     console.log(currentWord.checkLetter(inquirerResponse.guessedLetter));
-
+                    // if(guessesRemaining > 0 ) && (currentWord.checkLetter(inquirerResponse.guessedLetter) = true) {
+                    //     console.log("Guesses Remaining: " + guessesRemaining);
+                    // }
                     if (guessesRemaining === 0) {
                         console.log("You Are Out of Guesses!");
                         wordsWon--;
