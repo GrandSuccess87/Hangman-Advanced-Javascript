@@ -1,21 +1,20 @@
+// create a letter constructor function
 var Letter = function (char) {
     this.char = char;
     this.guessedLetter = false;
 
+    // compare letter guessed to the correct character to see if it is a match
     this.isMatch = function (letter) {
         if (letter === this.char) {
             this.guessedLetter = true;
+            
         } 
-        // else {
-        //     this.guessedLetter = false;
-
-        // }
     } 
         return;
 }
 
+//concantenate the word as a string using this.char or "_".
 Letter.prototype.toString = function () {
-    // console.log(this.guessedLetter);
     if (this.guessedLetter === true) {
         return this.char;
 

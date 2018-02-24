@@ -2,7 +2,9 @@
 
 Hangman game created using nodejs and javascript constructor functions
 
-The play will have 10 guesses at the start of each game to guess the randomly chosen word.
+Prompt and inquire packages are used to run this - please run npm install 
+
+The player will have 10 guesses at the start of each game to guess the randomly chosen word.
 
 Each time the user guesses a letter incorrectly their guesses left will drop by 1. 
 

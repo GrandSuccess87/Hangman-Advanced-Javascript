@@ -4,35 +4,46 @@ console.log("Guess a letter of the name of a technology I have learned!");
 console.log("Goodluck");
 console.log("--------------------------------");
 
+// require external files and node packages 
 var Letter = require('./letter.js');
 var Word = require('./word.js');
 var prompt = require('prompt');
 var inquirer = require('inquirer');
 
+
+// create global variables
 var guessesRemaining = 10;
 var wordsWon = 0;
+// var guesses = [];
 var wordBank = ['javascript', 'nodejs', 'jquery', 'mysql', 'git', 'html', 'css', 'npm', 'json']
 var currentWord = new Word(wordBank[Math.floor(Math.random() * wordBank.length)]);
 
-
+// initiate prompt
 prompt.start();
 
-
+// create game object
 game = {
 
-    
+    // define start game function
     startGame: function (word) {
-        // this.resetGuesses();
-        // this.currentWord = new Word(this.wordBank[Math.floor(Math.random() * this.wordBank.length)]);
-        // this.currentWord.getFilled();
+
+        //Prevent same letter from being guessed more than once: 
+        // guesses = [];
+        // if(guesses.indexOf(word) != -1) {
+        //        console.log("Please Try Again, You Have Already Guessed That Letter. ");
+        //    }
+    
         this.promptUser();
 
     },
 
-    // resetGuesses: function () {
-    //     guessesRemaining = 10;
-    // },
+    // define reset Guesses function
+    resetGuesses: function () {
+        guessesRemaining = 10;
+        
+    },
 
+    // define function that prompts the user to play the game
     promptUser: function () {
         inquirer.prompt([{
                 type: "input",
@@ -42,29 +53,42 @@ game = {
             .then(function (inquirerResponse) {
                     guessesRemaining--;
                     console.log(currentWord.checkLetter(inquirerResponse.guessedLetter));
+
+                    // want to have guessesRemaining stay the same if the user guesses the correct letter:
                     // if(guessesRemaining > 0 ) && (currentWord.checkLetter(inquirerResponse.guessedLetter) = true) {
                     //     console.log("Guesses Remaining: " + guessesRemaining);
                     // }
+                    
+                    // end game if no more guesses are left
                     if (guessesRemaining === 0) {
                         console.log("You Are Out of Guesses!");
                         wordsWon--;
                         console.log("Words Won: " + wordsWon);
 
-
+                        // prompt user to see if they would like to play another game
                         inquirer.prompt([{
                             type: "rawlist",
                             name: "yesNo",
                             message: "Up for another game?!",
                             choices: ["Y", "N"],
 
-                        }])
+                        }]);
                         if (inquirer.prompt.choices === "1") {
 
+
                         }
+
+                        game.resetGuesses();
                         game.startGame();
 
-                        // if user choses no, run else if satement to stop game
+                        // end game if user does not wish to play 
+                        // if (inquirer.prompt.choices === "2") {
+                        //     (!game.startGame());
+                        //     console.log("Game Over")
 
+                        // } 
+
+                        // if the word has been guessed correctly
                     } else if (!currentWord.notFinished()) {
                         console.log("You Won!! Congratulations, You Rock!!");
                         wordsWon++;
@@ -85,5 +109,8 @@ game = {
 game.startGame();
 
 // things to fix:
-//save guessed letter. 
-//decrement guesses remaining when wrong letter is guessed
+
+//when user does another game generate new another word
+        //Prevent same letter from being guessed more than once: 
+                    // want to have guessesRemaining stay the same if the user guesses the correct letter:
+                        // end game if user does not wish to play 

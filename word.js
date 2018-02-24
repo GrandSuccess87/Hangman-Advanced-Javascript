@@ -1,19 +1,22 @@
+// require letter.js file 
 var Letter = require('./letter.js');
-// console.log(Letter);
 
+
+// create word constructor function 
 var WordReady = function (input) {
     this.input = input;
     var lettArr = [];
-    // this.found = false;
 
-    // this.getFilled = function () {
+    //push new letter object into an array
     for (var letter in input) {
         lettArr.push(new Letter(input[letter].toLowerCase()));
 
     };
-    console.log(lettArr);
-    // };
+    // console.log(lettArr);
+
     this.word = lettArr;
+
+    //define show letters function which will concantenate the word and underscores together as a string
     this.showLetters = function () {
         var wordString = "";
         for (var i = 0; i < this.word.length; i++) {
@@ -23,6 +26,7 @@ var WordReady = function (input) {
      
     };
 
+    // define checkLetter function which compares users letter guess to correct character
     this.checkLetter = function (char) {
         // console.log(char + "!!!!!");
         
@@ -34,20 +38,7 @@ var WordReady = function (input) {
     }
 
 
-    this.getAnswer = function () {
-        console.log(this.word);
-    }
-
-
-    // this.findWord = function () {
-    //     this.found = this.word.every(function (currLett) {
-    //         console.log(currLett);
-    //         return currLett.appear;
-    //     });
-    //     return this.found;
-    // }
-
-
+    // create a not finished function so that the user can keep guessing
     this.notFinished = function () {
         var guessMore = false;
         for (var i = 0; i < this.word.length; i++) {
@@ -62,12 +53,6 @@ var WordReady = function (input) {
 
 };
 
-// var word1 = new WordReady("quintessa");
-// console.log(word1.checkLetter("i"));
-// console.log(word1.notFinished());
-// console.log(word1.findWord());
-// console.log(word1.showLetters());
-// console.log(word1.getAnswer());
-//?? show answer function not working ??//
+
 
 module.exports = WordReady;
